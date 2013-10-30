@@ -1,4 +1,20 @@
 Tms::Application.routes.draw do
+  resources :free_periods
+
+  resources :messages
+
+  resources :priorities
+
+  resources :work_categories
+
+  resources :statuses
+
+  resources :contractors
+
+  resources :teams
+
+  resources :contact_people
+
   resources :users_roles
 
   resources :roles
