@@ -1,12 +1,13 @@
 = form_for @message, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :from_id, :class => 'control-label'
-    .controls
-      = f.text_field :from_id, :class => 'text_field'
+  - unless user_signed_in?
+    .control-group
+      = f.label :from_id, :class => 'control-label'
+      .controls
+        = f.collection_select :from_id, User.all, :id, :email, :class => 'text_field'
   .control-group
     = f.label :to_id, :class => 'control-label'
     .controls
-      = f.text_field :to_id, :class => 'text_field'
+      = f.collection_select :to_id, User.all, :id, :email, :class => 'text_field'
   .control-group
     = f.label :topic, :class => 'control-label'
     .controls
@@ -14,7 +15,7 @@
   .control-group
     = f.label :text, :class => 'control-label'
     .controls
-      = f.text_field :text, :class => 'text_field'
+      = f.text_area :text, :size => '10x10', :class => 'text_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), messages_path, :class => 'btn'

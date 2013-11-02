@@ -15,3 +15,5 @@ leader.add_role :leader
 manager = User.create({email: 'm@m.mm', password: 'password'})
 manager.add_role :manager
 #ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'users')
+ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'statuses')
+ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'priorities')
