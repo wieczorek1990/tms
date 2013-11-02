@@ -1,4 +1,6 @@
 Tms::Application.routes.draw do
+  resources :departments
+
   resources :free_periods
 
   resources :messages
@@ -16,8 +18,6 @@ Tms::Application.routes.draw do
   resources :contact_people
 
   resources :users_roles
-
-  resources :roles
 
   get "welcome/index"
   devise_for :users
