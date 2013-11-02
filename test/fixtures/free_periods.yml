@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  start_date: 2013-10-14
-  end_date: 2013-10-14
+  start_date: 2013-11-02
+  end_date: 2013-11-02
   user_id: 
+  description: MyString
 
 two:
-  start_date: 2013-10-14
-  end_date: 2013-10-14
+  start_date: 2013-11-02
+  end_date: 2013-11-02
   user_id: 
+  description: MyString

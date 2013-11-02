@@ -18,7 +18,7 @@ class FreePeriodsControllerTest < ActionController::TestCase
 
   test "should create free_period" do
     assert_difference('FreePeriod.count') do
-      post :create, free_period: { end_date: @free_period.end_date, start_date: @free_period.start_date, user_id: @free_period.user_id }
+      post :create, free_period: { description: @free_period.description, end_date: @free_period.end_date, start_date: @free_period.start_date, user_id: @free_period.user_id }
     end
 
     assert_redirected_to free_period_path(assigns(:free_period))
@@ -35,7 +35,7 @@ class FreePeriodsControllerTest < ActionController::TestCase
   end
 
   test "should update free_period" do
-    patch :update, id: @free_period, free_period: { end_date: @free_period.end_date, start_date: @free_period.start_date, user_id: @free_period.user_id }
+    patch :update, id: @free_period, free_period: { description: @free_period.description, end_date: @free_period.end_date, start_date: @free_period.start_date, user_id: @free_period.user_id }
     assert_redirected_to free_period_path(assigns(:free_period))
   end
 

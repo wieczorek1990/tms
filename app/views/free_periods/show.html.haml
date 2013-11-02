@@ -14,6 +14,10 @@
   %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
   = @free_period.user_id
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @free_period.description
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), free_periods_path, :class => 'btn'

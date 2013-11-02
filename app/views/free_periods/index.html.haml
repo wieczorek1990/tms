@@ -8,6 +8,7 @@
       %th= model_class.human_attribute_name(:start_date)
       %th= model_class.human_attribute_name(:end_date)
       %th= model_class.human_attribute_name(:user_id)
+      %th= model_class.human_attribute_name(:description)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -17,6 +18,7 @@
         %td= free_period.start_date
         %td= free_period.end_date
         %td= free_period.user_id
+        %td= free_period.description
         %td=l free_period.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_free_period_path(free_period), :class => 'btn btn-mini'

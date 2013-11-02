@@ -4,6 +4,7 @@ class CreateFreePeriods < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.references :user, index: true
+      t.string :description
 
       t.timestamps
     end
