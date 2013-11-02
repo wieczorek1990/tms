@@ -1,4 +1,6 @@
 Tms::Application.routes.draw do
+  resources :contractors
+
   resources :departments
 
   resources :free_periods
@@ -10,8 +12,6 @@ Tms::Application.routes.draw do
   resources :work_categories
 
   resources :statuses
-
-  resources :contractors
 
   resources :teams
 

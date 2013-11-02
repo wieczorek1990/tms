@@ -7,6 +7,11 @@
   %br
   = @contractor.name
 
+%p
+  %strong= model_class.human_attribute_name(:contact_person_id) + ':'
+  %br
+  = link_to ContactPerson.find(@contractor.contact_person_id).email, contact_person_path(@contractor.contact_person)
+
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), contractors_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_contractor_path(@contractor), :class => 'btn'

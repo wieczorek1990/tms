@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-  phone: MyString
+  email: jan@nowak.pl
+  first_name: Jan
+  last_name: Nowak
+  phone: +48111222333
 
 two:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-  phone: MyString
+  email: piotr@nowak.pl
+  first_name: Piotr
+  last_name: Nowak
+  phone: +48333222111

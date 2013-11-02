@@ -18,7 +18,7 @@ class ContractorsControllerTest < ActionController::TestCase
 
   test "should create contractor" do
     assert_difference('Contractor.count') do
-      post :create, contractor: { name: @contractor.name }
+      post :create, contractor: { contact_person_id: @contractor.contact_person_id, name: @contractor.name }
     end
 
     assert_redirected_to contractor_path(assigns(:contractor))
@@ -35,7 +35,7 @@ class ContractorsControllerTest < ActionController::TestCase
   end
 
   test "should update contractor" do
-    patch :update, id: @contractor, contractor: { name: @contractor.name }
+    patch :update, id: @contractor, contractor: { contact_person_id: @contractor.contact_person_id, name: @contractor.name }
     assert_redirected_to contractor_path(assigns(:contractor))
   end
 
