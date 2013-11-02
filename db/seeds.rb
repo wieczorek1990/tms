@@ -18,3 +18,6 @@ manager.add_role :manager
 ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'statuses')
 ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'priorities')
 ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'contact_people')
+ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'work_categories')
+ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'teams')
+ActiveRecord::FixtureSet.create_fixtures(Rails.root.join('test', 'fixtures'), 'departments')

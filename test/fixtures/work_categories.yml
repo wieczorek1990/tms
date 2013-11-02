@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: development
 
 two:
-  name: MyString
+  name: admin
+
+three:
+  name: documentation

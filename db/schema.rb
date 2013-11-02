@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102122047) do
+ActiveRecord::Schema.define(version: 20131102124455) do
 
   create_table "contact_people", force: true do |t|
     t.string   "email"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20131102122047) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "departments_users", force: true do |t|
+    t.integer  "department_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "departments_users", ["department_id"], name: "index_departments_users_on_department_id"
+  add_index "departments_users", ["user_id"], name: "index_departments_users_on_user_id"
 
   create_table "free_periods", force: true do |t|
     t.date     "start_date"
@@ -88,6 +98,16 @@ ActiveRecord::Schema.define(version: 20131102122047) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "teams_users", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams_users", ["team_id"], name: "index_teams_users_on_team_id"
+  add_index "teams_users", ["user_id"], name: "index_teams_users_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
