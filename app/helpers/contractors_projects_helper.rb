@@ -1,0 +1,2 @@
+module ContractorsProjectsHelper
+end

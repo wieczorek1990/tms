@@ -1,0 +1,17 @@
+- model_class = TeamsProject
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:team_id) + ':'
+  %br
+  = link_to Team.find(@teams_project.team_id).name, team_path(@teams_project.team_id)
+%p
+  %strong= model_class.human_attribute_name(:project_id) + ':'
+  %br
+  = link_to Project.find(@teams_project.project_id).name, project_path(@teams_project.project_id)
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), teams_projects_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_teams_project_path(@teams_project), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), teams_project_path(@teams_project), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

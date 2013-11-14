@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114113407) do
+ActiveRecord::Schema.define(version: 20131114121310) do
 
   create_table "attachments", force: true do |t|
     t.text     "description"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20131114113407) do
   end
 
   add_index "contractors", ["contact_person_id"], name: "index_contractors_on_contact_person_id"
+
+  create_table "contractors_projects", force: true do |t|
+    t.integer  "contractor_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contractors_projects", ["contractor_id"], name: "index_contractors_projects_on_contractor_id"
+  add_index "contractors_projects", ["project_id"], name: "index_contractors_projects_on_project_id"
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -122,6 +132,16 @@ ActiveRecord::Schema.define(version: 20131114113407) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "teams_projects", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams_projects", ["project_id"], name: "index_teams_projects_on_project_id"
+  add_index "teams_projects", ["team_id"], name: "index_teams_projects_on_team_id"
 
   create_table "teams_users", force: true do |t|
     t.integer  "team_id"
