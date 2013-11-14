@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114122727) do
+ActiveRecord::Schema.define(version: 20131114132021) do
 
   create_table "attachments", force: true do |t|
     t.text     "description"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20131114122727) do
     t.integer  "contact_person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
 
   add_index "projects", ["contact_person_id"], name: "index_projects_on_contact_person_id"

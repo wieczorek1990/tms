@@ -4,4 +4,7 @@ class Project < ActiveRecord::Base
   belongs_to :contact_person
   has_many :attachments, :as => :attachable
   accepts_nested_attributes_for :attachments
+
+  include ActsAsTree
+  acts_as_tree order: 'name'
 end

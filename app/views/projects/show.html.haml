@@ -28,6 +28,14 @@
         = attachment.description
         \- #{link_to("Download", attachment.file_url)}
 
+%p
+  %strong= model_class.human_attribute_name(:related_projects) + ':'
+  %br
+  %ul
+    - for child in @project.children
+      %li
+        = link_to child.name, project_path(child.id)
+
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), projects_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(@project), :class => 'btn'
