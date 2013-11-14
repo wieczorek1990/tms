@@ -1,0 +1,33 @@
+= nested_form_for @project, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :contractor_id, :class => 'control-label'
+    .controls
+      = f.collection_select :contractor_id, Contractor.all, :id, :name, :class => 'text_field'
+  .control-group
+    = f.label :team_id, :class => 'control-label'
+    .controls
+      = f.collection_select :team_id, Team.all, :id, :name, :class => 'text_field'
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :contact_person_id, :class => 'control-label'
+    .controls
+      = f.collection_select :contact_person_id, ContactPerson.all, :id, :full_name, :class => 'text_field'
+    %hr
+  = f.fields_for :attachments do |attachment_form|
+    .control-group
+      = attachment_form.label :description, :class => 'control-label'
+      .controls
+        = attachment_form.text_area :description
+    .control-group
+      = attachment_form.label :file, :class => 'control-label'
+      .controls
+        = attachment_form.file_field :file
+    = attachment_form.link_to_remove "Remove this attachment", class: 'btn'
+    %hr
+  = f.link_to_add "Add attachment", :attachments, class: 'btn'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn'

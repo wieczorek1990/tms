@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contractor_id: 
+  team_id: 
+  name: MyString
+  contact_person_id: 
+
+two:
+  contractor_id: 
+  team_id: 
+  name: MyString
+  contact_person_id: 

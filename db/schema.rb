@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102124455) do
+ActiveRecord::Schema.define(version: 20131114113407) do
+
+  create_table "attachments", force: true do |t|
+    t.text     "description"
+    t.string   "file"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attachments", ["attachable_id"], name: "index_attachments_on_attachable_id"
 
   create_table "contact_people", force: true do |t|
     t.string   "email"
@@ -75,6 +86,19 @@ ActiveRecord::Schema.define(version: 20131102124455) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "projects", force: true do |t|
+    t.integer  "contractor_id"
+    t.integer  "team_id"
+    t.string   "name"
+    t.integer  "contact_person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["contact_person_id"], name: "index_projects_on_contact_person_id"
+  add_index "projects", ["contractor_id"], name: "index_projects_on_contractor_id"
+  add_index "projects", ["team_id"], name: "index_projects_on_team_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
