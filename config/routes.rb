@@ -1,4 +1,6 @@
 Tms::Application.routes.draw do
+  resources :tasks
+
   resources :teams_projects
 
   resources :contractors_projects

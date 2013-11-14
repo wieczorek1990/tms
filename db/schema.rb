@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114121310) do
+ActiveRecord::Schema.define(version: 20131114122727) do
 
   create_table "attachments", force: true do |t|
     t.text     "description"
@@ -126,6 +126,26 @@ ActiveRecord::Schema.define(version: 20131114121310) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tasks", force: true do |t|
+    t.integer  "person_responsible_id"
+    t.integer  "work_category_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "description"
+    t.integer  "hours_planned"
+    t.integer  "hours_real"
+    t.integer  "cost"
+    t.integer  "status_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["person_responsible_id"], name: "index_tasks_on_person_responsible_id"
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
+  add_index "tasks", ["status_id"], name: "index_tasks_on_status_id"
+  add_index "tasks", ["work_category_id"], name: "index_tasks_on_work_category_id"
 
   create_table "teams", force: true do |t|
     t.string   "name"

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  person_responsible_id: 
+  work_category_id: 
+  start_date: 2013-11-14
+  end_date: 2013-11-14
+  description: MyText
+  hours_planned: 1
+  hours_real: 1
+  cost: 1
+  status_id: 
+  project_id: 
+
+two:
+  person_responsible_id: 
+  work_category_id: 
+  start_date: 2013-11-14
+  end_date: 2013-11-14
+  description: MyText
+  hours_planned: 1
+  hours_real: 1
+  cost: 1
+  status_id: 
+  project_id: 
