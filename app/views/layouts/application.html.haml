@@ -29,9 +29,6 @@
           %a.brand(href="#") Tms
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
               - unless user_signed_in?
                 %li= link_to 'Sign in', user_session_path
                 %li= link_to 'Register', new_user_registration_path
@@ -46,9 +43,20 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to 'Contact people', contact_people_path
+              %li= link_to 'Contractors', contractors_path
+              %li= link_to 'Contractor&Projects', contractors_projects_path
+              %li= link_to 'Departments', departments_path
+              %li= link_to 'Free periods', free_periods_path
+              %li= link_to 'Priorities', priorities_path
+              %li= link_to 'Projects', projects_path
+              %li= link_to 'Statuses', statuses_path
+              %li= link_to 'Tasks', tasks_path
+              %li= link_to 'Teams', teams_path
+              %li= link_to 'Teams&Projects', teams_projects_path
+              %li= link_to 'Teams&Users', teams_users_path
+              %li= link_to 'Users&Roles', users_roles_path
+              %li= link_to 'Work categories', work_categories_path
         .span9
           = bootstrap_flash
           = yield
