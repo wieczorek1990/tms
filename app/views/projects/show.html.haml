@@ -22,19 +22,33 @@
 %p
   %strong= model_class.human_attribute_name(:attachments) + ':'
   %br
-  %ul
-    - for attachment in @project.attachments
-      %li
-        = attachment.description
-        \- #{link_to("Download", attachment.file_url)}
+  - if @project.attachments.count > 0
+    %ul
+      - for attachment in @project.attachments
+        %li
+          = attachment.description
+          \- #{link_to("Download", attachment.file_url)}
+  - else
+    %span There are no attachments
 
 %p
   %strong= model_class.human_attribute_name(:related_projects) + ':'
   %br
-  %ul
-    - for child in @project.children
-      %li
-        = link_to child.name, project_path(child.id)
+  - if @project.children.count > 0
+    %table{border: '1'}
+      %tr
+        %th Name
+        %th Hours planned
+        %th Hours real
+        %th Cost
+      - for project in @project.children
+        %tr
+          %td= link_to project.name, project_path(project.id)
+          %td= Task.where(project: project).sum(:hours_planned)
+          %td= Task.where(project: project).sum(:hours_real)
+          %td= Task.where(project: project).sum(:cost)
+  - else
+    %span There are no related projects
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), projects_path, :class => 'btn'
