@@ -1,4 +1,6 @@
 class MessagesController < InheritedResources::Base
+  load_and_authorize_resource
+
   def index
     unless user_signed_in?
       @messages = Message.all

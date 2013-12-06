@@ -43,20 +43,41 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to 'Contact people', contact_people_path
-              %li= link_to 'Contractors', contractors_path
-              %li= link_to 'Contractor&Projects', contractors_projects_path
-              %li= link_to 'Departments', departments_path
-              %li= link_to 'Free periods', free_periods_path
-              %li= link_to 'Priorities', priorities_path
-              %li= link_to 'Projects', projects_path
-              %li= link_to 'Statuses', statuses_path
-              %li= link_to 'Tasks', tasks_path
-              %li= link_to 'Teams', teams_path
-              %li= link_to 'Teams&Projects', teams_projects_path
-              %li= link_to 'Teams&Users', teams_users_path
-              %li= link_to 'Users&Roles', users_roles_path
-              %li= link_to 'Work categories', work_categories_path
+              - if current_user.nil? or current_user.has_role? :admin
+                %li= link_to 'Contact people', contact_people_path
+                %li= link_to 'Contractors', contractors_path
+                %li= link_to 'Contractor&Projects', contractors_projects_path
+                %li= link_to 'Departments', departments_path
+                %li= link_to 'Free periods', free_periods_path
+                %li= link_to 'Priorities', priorities_path
+                %li= link_to 'Projects', projects_path
+                %li= link_to 'Statuses', statuses_path
+                %li= link_to 'Tasks', tasks_path
+                %li= link_to 'Teams', teams_path
+                %li= link_to 'Teams&Projects', teams_projects_path
+                %li= link_to 'Teams&Users', teams_users_path
+                %li= link_to 'Users&Roles', users_roles_path
+                %li= link_to 'Work categories', work_categories_path
+              - elsif current_user.has_role? :employee
+                %li= link_to 'Free periods', free_periods_path
+                %li= link_to 'Projects', projects_path
+                %li= link_to 'Tasks', tasks_path
+              - elsif current_user.has_role? :leader
+                %li= link_to 'Contact people', contact_people_path
+                %li= link_to 'Free periods', free_periods_path
+                %li= link_to 'Projects', projects_path
+                %li= link_to 'Tasks', tasks_path
+                %li= link_to 'Teams', teams_path
+                %li= link_to 'Teams&Projects', teams_projects_path
+                %li= link_to 'Teams&Users', teams_users_path
+              - elsif current_user.has_role? :manager
+                %li= link_to 'Contact people', contact_people_path
+                %li= link_to 'Contractors', contractors_path
+                %li= link_to 'Contractor&Projects', contractors_projects_path
+                %li= link_to 'Departments', departments_path
+                %li= link_to 'Free periods', free_periods_path
+                %li= link_to 'Projects', projects_path
+                %li= link_to 'Tasks', tasks_path
         .span9
           = bootstrap_flash
           = yield

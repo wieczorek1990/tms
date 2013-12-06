@@ -29,10 +29,16 @@ class Ability
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
     user ||= User.new # guest user (not logged in)
-    if user.admin?
+    if user.has_role? :admin
       can :manage, :all
+    elsif user.has_role? :employee
+      can :manage, [FreePeriod, Project, Task]
+    elsif user.has_role? :leader
+      can :manage, [ContactPerson, FreePeriod, Project, Task, Team, TeamsProject, TeamsUser]
+    elsif user.has_role? :manager
+      can :manage, [ContactPerson, Contractor, ContractorsProject, Department, FreePeriod, Project, Task]
     else
-      can :read, :all
+      cannot :read, :all
     end
   end
 end
