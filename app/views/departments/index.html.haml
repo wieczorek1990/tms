@@ -19,3 +19,4 @@
           = link_to t('.destroy', :default => t("helpers.links.destroy")), department_path(department), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_department_path, :class => 'btn btn-primary'
+= link_to 'Add users to department', new_departments_user_path, :class => 'btn'

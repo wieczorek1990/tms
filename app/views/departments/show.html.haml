@@ -6,6 +6,12 @@
   %strong= model_class.human_attribute_name(:name) + ':'
   %br
   = @department.name
+  %h2 Users
+  - if @department.users.count > 0
+    - for user in @department.users
+      = mail_to user.email
+  - else
+    %span There are no users in this department
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), departments_path, :class => 'btn'
