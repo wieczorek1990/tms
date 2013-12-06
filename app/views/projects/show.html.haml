@@ -31,17 +31,22 @@
   - else
     %span There are no attachments
 
-  %strong Stats
-  %table{border: '1'}
-    %tr
-      %th Hours planned
-      %th Hours real
-      %th Cost
-    - for project in @project.children
+%p
+  %strong Stats:
+  %br
+  - if @project.children.count > 0
+    %table{border: '1'}
       %tr
-        %td= Task.where(project: @project).sum(:hours_planned)
-        %td= Task.where(project: @project).sum(:hours_real)
-        %td= Task.where(project: @project).sum(:cost)
+        %th Hours planned
+        %th Hours real
+        %th Cost
+      - for project in @project.children
+        %tr
+          %td= Task.where(project: @project).sum(:hours_planned)
+          %td= Task.where(project: @project).sum(:hours_real)
+          %td= Task.where(project: @project).sum(:cost)
+  - else
+    %span There are no tasks in this project
 
 
 %p
