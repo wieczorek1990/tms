@@ -13,8 +13,8 @@
     - @teams_users.each do |teams_user|
       %tr
         %td= link_to teams_user.id, teams_user_path(teams_user)
-        %td= teams_user.team_id
-        %td= teams_user.user_id
+        %td= link_to Team.find(teams_user.team_id).name, team_path(teams_user.team_id)
+        %td= mail_to User.find(teams_user.user_id).email
         %td=l teams_user.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_teams_user_path(teams_user), :class => 'btn btn-mini'

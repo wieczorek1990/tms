@@ -15,7 +15,7 @@
     - @contact_people.each do |contact_person|
       %tr
         %td= link_to contact_person.id, contact_person_path(contact_person)
-        %td= contact_person.email
+        %td= mail_to contact_person.email
         %td= contact_person.first_name
         %td= contact_person.last_name
         %td= contact_person.phone

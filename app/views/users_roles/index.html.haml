@@ -10,7 +10,7 @@
   %tbody
     - @users_roles.each do |users_role|
       %tr
-        %td= User.find(users_role.user_id).email
+        %td= mail_to User.find(users_role.user_id).email
         %td= Role.find(users_role.role_id).name
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_users_role_path(users_role), :class => 'btn btn-mini'

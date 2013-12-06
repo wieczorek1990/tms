@@ -21,7 +21,7 @@
     - @tasks.each do |task|
       %tr
         %td= link_to task.id, task_path(task)
-        %td= User.find(task.person_responsible_id).email
+        %td= mail_to User.find(task.person_responsible_id).email
         %td= WorkCategory.find(task.work_category_id).name
         %td= task.start_date
         %td= task.end_date

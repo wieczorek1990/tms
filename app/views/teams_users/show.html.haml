@@ -5,11 +5,11 @@
 %p
   %strong= model_class.human_attribute_name(:team_id) + ':'
   %br
-  = @teams_user.team_id
+  = link_to Team.find(@teams_user.team_id).name, team_path(@teams_user.team_id)
 %p
   %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
-  = @teams_user.user_id
+  = mail_to User.find(@teams_user.user_id).email
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), teams_users_path, :class => 'btn'

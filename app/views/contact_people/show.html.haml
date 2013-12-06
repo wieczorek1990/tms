@@ -5,7 +5,7 @@
 %p
   %strong= model_class.human_attribute_name(:email) + ':'
   %br
-  = @contact_person.email
+  = mail_to @contact_person.email
 %p
   %strong= model_class.human_attribute_name(:first_name) + ':'
   %br

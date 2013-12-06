@@ -5,7 +5,7 @@
 %p
   %strong= model_class.human_attribute_name(:person_responsible_id) + ':'
   %br
-  = User.find(@task.person_responsible_id).email
+  = mail_to User.find(@task.person_responsible_id).email
 %p
   %strong= model_class.human_attribute_name(:work_category_id) + ':'
   %br

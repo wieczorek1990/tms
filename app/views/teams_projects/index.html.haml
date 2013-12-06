@@ -14,7 +14,7 @@
       %tr
         %td= link_to teams_project.id, teams_project_path(teams_project)
         %td= link_to Team.find(teams_project.team_id).name, team_path(teams_project.team_id)
-        %td= link_to Project.find(teams_project.project_id), project_path(teams_project.project_id)
+        %td= link_to Project.find(teams_project.project_id).name, project_path(teams_project.project_id)
         %td=l teams_project.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_teams_project_path(teams_project), :class => 'btn btn-mini'
