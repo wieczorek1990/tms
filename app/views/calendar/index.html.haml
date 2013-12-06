@@ -1,2 +1,16 @@
-%h1 Calendar#index
-%p Find me in app/views/calendar/index.html.haml
+%h1 Calendar
+
+= form_tag calendar_index_path, :method => 'get' do
+  %p
+    = date_field_tag :first_day_of_week, current_date
+    = submit_tag "Go", :name => nil
+%table
+  %tr
+    - for day in 0..6
+      %th= (Date.parse(current_date) + day.days).to_formatted_s(:long)
+  %tr
+    - for day in 0..6
+      %td= free_periods(Date.parse(current_date) + day.days)
+  %tr
+    - for day in 0..6
+      %td= tasks(Date.parse(current_date) + day.days)

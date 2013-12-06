@@ -3,7 +3,7 @@ class FreePeriod < ActiveRecord::Base
   validate :dates_correct
 
   def dates_correct
-    if start_date >= end_date
+    if start_date > end_date
       errors.add(:start_date, 'must be greater than end date')
     end
   end
