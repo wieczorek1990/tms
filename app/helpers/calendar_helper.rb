@@ -1,6 +1,6 @@
 module CalendarHelper
   def current_date
-    params[:first_day_of_week] || Date.today
+    Date.parse(params[:first_day_of_week])
   end
 
   def free_periods(date)
