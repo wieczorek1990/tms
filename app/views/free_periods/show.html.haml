@@ -13,7 +13,7 @@
 %p
   %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
-  = @free_period.user_id
+  = mail_to User.find(@free_period.user_id).email
 %p
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
