@@ -33,10 +33,13 @@ class Ability
       can :manage, :all
     elsif user.has_role? :employee
       can :manage, [FreePeriod, Project, Task]
+      can :manage, Message, :to_id => user.id
     elsif user.has_role? :leader
       can :manage, [ContactPerson, FreePeriod, Project, Task, Team, TeamsProject, TeamsUser]
+      can :manage, Message, :to_id => user.id
     elsif user.has_role? :manager
       can :manage, [ContactPerson, Contractor, ContractorsProject, Department, FreePeriod, Project, Task]
+      can :manage, Message, :to_id => user.id
     else
       cannot :read, :all
     end
