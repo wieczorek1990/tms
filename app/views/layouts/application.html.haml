@@ -49,6 +49,7 @@
                 %li= link_to 'Contractors', contractors_path
                 %li= link_to 'Contractors&Projects', contractors_projects_path
                 %li= link_to 'Departments', departments_path
+                %li= link_to 'Departments&Users', departments_users_path
                 %li= link_to 'Free periods', free_periods_path
                 %li= link_to 'Priorities', priorities_path
                 %li= link_to 'Projects', projects_path
@@ -79,11 +80,12 @@
                 %li= link_to 'Contractors', contractors_path
                 %li= link_to 'Contractors&Projects', contractors_projects_path
                 %li= link_to 'Departments', departments_path
+                %li= link_to 'Departments&Users', departments_users_path
                 %li= link_to 'Free periods', free_periods_path
                 %li= link_to 'Projects', projects_path
                 %li= link_to 'Tasks', tasks_path
               - else
-                %li= link_to 'Calendar', calendar_index_path
+                = "Please wait for admin to give you rights"
         .span9
           = bootstrap_flash
           = yield
