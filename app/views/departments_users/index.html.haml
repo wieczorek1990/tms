@@ -13,7 +13,7 @@
     - @departments_users.each do |departments_user|
       %tr
         %td= link_to departments_user.id, departments_user_path(departments_user)
-        %td= departments_user.department_id
+        %td= link_to Department.find(departments_user.department_id).name, department_path(departments_user.department_id)
         %td= departments_user.user_id
         %td=l departments_user.created_at
         %td
