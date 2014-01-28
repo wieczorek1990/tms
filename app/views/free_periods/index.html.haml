@@ -17,7 +17,7 @@
         %td= link_to free_period.id, free_period_path(free_period)
         %td= free_period.start_date
         %td= free_period.end_date
-        %td= free_period.user_id
+        %td= free_period.user_id.nil? ? nil : mail_to(User.find(free_period.user_id).email)
         %td= free_period.description
         %td=l free_period.created_at
         %td
