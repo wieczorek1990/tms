@@ -10,11 +10,11 @@
   .control-group
     = f.label :start_date, :class => 'control-label'
     .controls
-      = f.text_field :start_date, :class => 'text_field', 'data-behaviour' => 'datepicker'
+      = f.date_select :start_date, :class => 'text_field'
   .control-group
     = f.label :end_date, :class => 'control-label'
     .controls
-      = f.text_field :end_date, :class => 'text_field', 'data-behaviour' => 'datepicker'
+      = f.date_select :end_date, :class => 'text_field'
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
